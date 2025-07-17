@@ -8,8 +8,8 @@
         "location": "Lahore, Pakistan"
     },
     "fontFamily": "Calibri",
-    "fontSize": 12,
-    "navbarFontSize": 10,
+    "fontSize": 14,
+    "navbarFontSize": 11,
     "selectedColor": {
         "primary": "#4a90e2",
         "secondary": "#2c5aa0",
@@ -18,9 +18,21 @@
     "workExperience": [
         {
             "id": "1",
+            "company": "Musketeers Tech",
+            "position": "Software Engineer",
+            "duration": "Dec 2024 - Present · 8 mos",
+            "location": "On-site",
+            "responsibilities": [
+                "Developed an algorithm Bug Tracker that removed duplicate entry of records, resolved data inconsistencies, and prevented app crashes resulting in improved data integrity and optimized sorting and filtering of records.",
+                "Implemented a Custom Chatbot using FastAPI + LangChain + GPT-4 with integrated Prompt Engineering for accurate natural language understanding. The bot is capable of handling voice input, multilingual translation, command-based actions (e.g. create room, fetch user groups) and generating intelligent, dynamic replies.",
+                "Deployed a Generative AI project that creates realistic video advertisements and promotions of products using custom AI avatars and voice synthesis, capable of doing product promotions from any script that enhances user engagement and automating ad content creation for personal brands and commercial products."
+            ]
+        },
+        {
+            "id": "2",
             "company": "Microsoft",
             "position": "Software Engineer",
-            "duration": "Sept 2021 - Present",
+            "duration": "Sept 2021 - Nov 2024",
             "location": "Lahore, Pakistan",
             "responsibilities": [
                 "Built a real-time data synchronization pipeline using Kafka and Redis to handle 500K+ daily events with 130ms latency, improving user data consistency across distributed services.",

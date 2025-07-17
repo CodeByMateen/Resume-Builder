@@ -180,11 +180,11 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         </div>
 
         {/* Work Experience */}
-        <div className="resume-section">
-          <h2 className="section-title">Work Experience</h2>
-          <div className="section-content">
-            {resumeData.workExperience.length > 0 ? (
-              resumeData.workExperience.map((exp, _) => (
+        {resumeData.workExperience.length > 0 && (
+          <div className="resume-section">
+            <h2 className="section-title">Work Experience</h2>
+            <div className="section-content">
+              {resumeData.workExperience.map((exp, _) => (
                 <div key={exp.id} className="experience-item">
                   <div className="experience-header">
                     <div className="experience-company">
@@ -202,19 +202,17 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                     ))}
                   </ul>
                 </div>
-              ))
-            ) : (
-              <div className="placeholder-text">Add your work experience to see it here</div>
-            )}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Projects */}
-        <div className="resume-section">
-          <h2 className="section-title">Projects</h2>
-          <div className="section-content">
-            {resumeData.projects.length > 0 ? (
-              resumeData.projects.map((project, _) => (
+        {resumeData.projects.length > 0 && (
+          <div className="resume-section">
+            <h2 className="section-title">Projects</h2>
+            <div className="section-content">
+              {resumeData.projects.map((project, _) => (
                 <div key={project.id} className="project-item">
                   <div className="project-header">
                     <div className="project-name">
@@ -231,36 +229,33 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                     </div>
                   )}
                 </div>
-              ))
-            ) : (
-              <div className="placeholder-text">Add your projects to see them here</div>
-            )}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Skills and Certifications */}
-        <div className="resume-section">
-          <h2 className="section-title">Skills and Certifications</h2>
-          <div className="section-content">
-            <div className="skills-grid">
-              {formatSkillsSection(resumeData.skills.programmingLanguages, 'Programming Languages')}
-              {formatSkillsSection(resumeData.skills.techStack, 'Tech Stack')}
-              {formatSkillsSection(resumeData.skills.systemDesign, 'System Design')}
-              {formatSkillsSection(resumeData.skills.cloudDevops, 'Cloud and DevOps')}
-              {formatSkillsSection(resumeData.skills.databases, 'Data & Databases')}
-              {formatSkillsSection(resumeData.skills.certifications, 'Certifications')}
+        {!Object.values(resumeData.skills).every(skillArray => skillArray.length === 0) && (
+          <div className="resume-section">
+            <h2 className="section-title">Skills and Certifications</h2>
+            <div className="section-content">
+              <div className="skills-grid">
+                {formatSkillsSection(resumeData.skills.programmingLanguages, 'Programming Languages')}
+                {formatSkillsSection(resumeData.skills.techStack, 'Tech Stack')}
+                {formatSkillsSection(resumeData.skills.systemDesign, 'System Design')}
+                {formatSkillsSection(resumeData.skills.cloudDevops, 'Cloud and DevOps')}
+                {formatSkillsSection(resumeData.skills.databases, 'Data & Databases')}
+                {formatSkillsSection(resumeData.skills.certifications, 'Certifications')}
+              </div>
             </div>
-            {Object.values(resumeData.skills).every(skillArray => skillArray.length === 0) && (
-              <div className="placeholder-text">Add your skills to see them here</div>
-            )}
           </div>
-        </div>
+        )}
 
         {/* Education */}
-        <div className="resume-section">
-          <h2 className="section-title">Education</h2>
-          <div className="section-content">
-            {resumeData.education.institution || resumeData.education.degree ? (
+        {(resumeData.education.institution || resumeData.education.degree) && (
+          <div className="resume-section">
+            <h2 className="section-title">Education</h2>
+            <div className="section-content">
               <div className="education-item">
                 <div className="education-header">
                   <div className="education-institution">
@@ -273,27 +268,23 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="placeholder-text">Add your education details to see them here</div>
-            )}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Achievements */}
-        <div className="resume-section">
-          <h2 className="section-title">Achievements</h2>
-          <div className="section-content">
-            {resumeData.achievements.length > 0 ? (
+        {resumeData.achievements.length > 0 && (
+          <div className="resume-section">
+            <h2 className="section-title">Achievements</h2>
+            <div className="section-content">
               <ul className="achievements-list">
                 {resumeData.achievements.map((achievement, index) => (
                   <li key={index}>{achievement}</li>
                 ))}
               </ul>
-            ) : (
-              <div className="placeholder-text">Add your achievements to see them here</div>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
