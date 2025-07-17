@@ -1,0 +1,261 @@
+/* Color Picker Container */
+.color-picker-container {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(74, 144, 226, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.color-picker-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  border-radius: 12px 12px 0 0;
+}
+
+.color-picker-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.color-picker-container h3 {
+  margin-bottom: 20px;
+  color: #2d3748;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-picker-container h3::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  border-radius: 2px;
+}
+
+/* Direct Color Picker Interface */
+.direct-color-picker {
+  margin-bottom: 24px;
+}
+
+.color-picker-main {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.hsv-picker-wrapper {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Override react-colorful styles for direct interface */
+.hsv-picker-wrapper .react-colorful {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hsv-picker-wrapper .react-colorful__saturation {
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 0;
+  height: 220px;
+}
+
+.hsv-picker-wrapper .react-colorful__hue {
+  border-radius: 0 0 12px 12px;
+  height: 32px;
+  margin-bottom: 0;
+}
+
+.hsv-picker-wrapper .react-colorful__pointer {
+  width: 24px;
+  height: 24px;
+  border: 3px solid white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.hsv-picker-wrapper .react-colorful__pointer:hover {
+  transform: scale(1.1);
+}
+
+.color-info-panel {
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.color-preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.color-preview-large {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e2e8f0;
+}
+
+.color-preview-primary,
+.color-preview-secondary {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.color-preview-primary::before,
+.color-preview-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: all 0.3s ease;
+}
+
+.color-preview-primary:hover::before,
+.color-preview-secondary:hover::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.color-values {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.color-value {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.color-value:hover {
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.color-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.color-hex {
+  font-size: 14px;
+  color: #2d3748;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .color-picker-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hsv-picker-wrapper {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .hsv-picker-wrapper .react-colorful {
+    height: 240px;
+  }
+
+  .hsv-picker-wrapper .react-colorful__saturation {
+    height: 180px;
+  }
+
+  .color-info-panel {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .color-preview-large {
+    flex-direction: row;
+    height: 60px;
+  }
+
+  .color-preview-primary,
+  .color-preview-secondary {
+    height: 60px;
+    flex: 1;
+  }
+
+  .color-values {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .color-value {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .color-picker-container {
+    padding: 16px;
+  }
+
+  .color-picker-main {
+    padding: 16px;
+  }
+
+  .hsv-picker-wrapper .react-colorful {
+    height: 200px;
+  }
+
+  .hsv-picker-wrapper .react-colorful__saturation {
+    height: 150px;
+  }
+}

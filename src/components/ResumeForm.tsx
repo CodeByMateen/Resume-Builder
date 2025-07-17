@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import type { ResumeData } from '../App'
 import { demoData } from '../demoData'
+import ColorPicker from './ColorPicker'
 
 interface ResumeFormProps {
     resumeData: ResumeData
@@ -281,38 +282,11 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
 
     return (
         <div className="resume-form">
-            {/* Color Palette Selector */}
-            <div className="color-palette-section">
-                <h3>Choose Your Color Theme</h3>
-                <div className="color-palette">
-                    {[
-                        { name: 'Light Blue', primary: '#4a90e2', secondary: '#2c5aa0' },
-                        { name: 'Teal', primary: '#20b2aa', secondary: '#008080' },
-                        { name: 'Green', primary: '#28a745', secondary: '#1e7e34' },
-                        { name: 'Orange', primary: '#fd7e14', secondary: '#e55a4f' },
-                        { name: 'Dark Blue', primary: '#007bff', secondary: '#0056b3' },
-                        { name: 'Red', primary: '#dc3545', secondary: '#bd2130' },
-                        { name: 'Indigo', primary: '#6610f2', secondary: '#520dc2' },
-                        { name: 'Gray', primary: '#6c757d', secondary: '#495057' }
-                    ].map((color) => (
-                        <div
-                            key={color.name}
-                            className={`color-option ${resumeData.selectedColor.name === color.name ? 'selected' : ''}`}
-                            onClick={() => setResumeData({ ...resumeData, selectedColor: color })}
-                            style={{ 
-                                background: `linear-gradient(135deg, ${color.primary} 0%, ${color.secondary} 100%)`,
-                                cursor: 'pointer'
-                            }}
-                            title={color.name}
-                        >
-                            {resumeData.selectedColor.name === color.name && (
-                                <div className="color-check">✓</div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-                <p className="selected-color-name">Selected: {resumeData.selectedColor.name}</p>
-            </div>
+            {/* Color Picker */}
+            <ColorPicker
+                selectedColor={resumeData.selectedColor}
+                onColorChange={(color) => setResumeData({ ...resumeData, selectedColor: color })}
+            />
 
             {/* Creator Attribution */}
             <div className="creator-attribution">
