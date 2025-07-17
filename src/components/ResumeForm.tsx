@@ -113,7 +113,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
             id: Date.now().toString(),
             name: '',
             githubLink: '',
-            description: '',
+            description: [''],
             technologies: []
         }
         setResumeData({
@@ -127,6 +127,44 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
             ...resumeData,
             projects: resumeData.projects.map(project =>
                 project.id === id ? { ...project, [field]: value } : project
+            )
+        })
+    }
+
+    const updateProjectDescription = (projectId: string, index: number, value: string) => {
+        setResumeData({
+            ...resumeData,
+            projects: resumeData.projects.map(project =>
+                project.id === projectId ? {
+                    ...project,
+                    description: project.description.map((desc, i) =>
+                        i === index ? value : desc
+                    )
+                } : project
+            )
+        })
+    }
+
+    const addProjectDescription = (projectId: string) => {
+        setResumeData({
+            ...resumeData,
+            projects: resumeData.projects.map(project =>
+                project.id === projectId ? {
+                    ...project,
+                    description: [...project.description, '']
+                } : project
+            )
+        })
+    }
+
+    const removeProjectDescription = (projectId: string, index: number) => {
+        setResumeData({
+            ...resumeData,
+            projects: resumeData.projects.map(project =>
+                project.id === projectId ? {
+                    ...project,
+                    description: project.description.filter((_, i) => i !== index)
+                } : project
             )
         })
     }
@@ -163,24 +201,56 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
         })
     }
 
-    const addSkill = (category: keyof ResumeData['skills'], skill: string) => {
-        if (!skill.trim()) return
+    const addSkillSection = () => {
+        const newSkillSection = {
+            id: Date.now().toString(),
+            name: '',
+            skills: []
+        }
         setResumeData({
             ...resumeData,
-            skills: {
-                ...resumeData.skills,
-                [category]: [...resumeData.skills[category], skill.trim()]
-            }
+            skills: [...resumeData.skills, newSkillSection]
         })
     }
 
-    const removeSkill = (category: keyof ResumeData['skills'], skillIndex: number) => {
+    const updateSkillSectionName = (id: string, name: string) => {
         setResumeData({
             ...resumeData,
-            skills: {
-                ...resumeData.skills,
-                [category]: resumeData.skills[category].filter((_, i) => i !== skillIndex)
-            }
+            skills: resumeData.skills.map(section =>
+                section.id === id ? { ...section, name } : section
+            )
+        })
+    }
+
+    const removeSkillSection = (id: string) => {
+        setResumeData({
+            ...resumeData,
+            skills: resumeData.skills.filter(section => section.id !== id)
+        })
+    }
+
+    const addSkill = (sectionId: string, skill: string) => {
+        if (!skill.trim()) return
+        setResumeData({
+            ...resumeData,
+            skills: resumeData.skills.map(section =>
+                section.id === sectionId ? {
+                    ...section,
+                    skills: [...section.skills, skill.trim()]
+                } : section
+            )
+        })
+    }
+
+    const removeSkill = (sectionId: string, skillIndex: number) => {
+        setResumeData({
+            ...resumeData,
+            skills: resumeData.skills.map(section =>
+                section.id === sectionId ? {
+                    ...section,
+                    skills: section.skills.filter((_, i) => i !== skillIndex)
+                } : section
+            )
         })
     }
 
@@ -398,6 +468,15 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
                     />
                 </div>
                 <div className="form-group">
+                    <label>Role/Position Applying For</label>
+                    <input
+                        type="text"
+                        value={resumeData.personalInfo.role}
+                        onChange={(e) => updatePersonalInfo('role', e.target.value)}
+                        placeholder="e.g. Software Engineer, AI Engineer, Data Scientist"
+                    />
+                </div>
+                <div className="form-group">
                     <label>Phone Number</label>
                     <input
                         type="text"
@@ -576,11 +655,29 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
                         </div>
                         <div className="form-group">
                             <label>Description</label>
-                            <textarea
-                                value={project.description}
-                                onChange={(e) => updateProject(project.id, 'description', e.target.value)}
-                                placeholder="Describe your project"
-                            />
+                            {project.description.map((desc, descIndex) => (
+                                <div key={descIndex} className="dynamic-input">
+                                    <textarea
+                                        value={desc}
+                                        onChange={(e) => updateProjectDescription(project.id, descIndex, e.target.value)}
+                                        placeholder="Describe your project"
+                                    />
+                                    <button
+                                        type="button"
+                                        className="btn btn-danger remove-btn"
+                                        onClick={() => removeProjectDescription(project.id, descIndex)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                            <button
+                                type="button"
+                                className="btn btn-secondary add-button"
+                                onClick={() => addProjectDescription(project.id)}
+                            >
+                                Add Description Point
+                            </button>
                         </div>
                         <div className="form-group">
                             <label>Technologies</label>
@@ -636,54 +733,75 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
             <div className="form-section">
                 <h3>Skills and Certifications</h3>
 
-                {Object.entries({
-                    programmingLanguages: 'Programming Languages',
-                    techStack: 'Tech Stack',
-                    systemDesign: 'System Design',
-                    cloudDevops: 'Cloud and DevOps',
-                    databases: 'Data & Databases',
-                    certifications: 'Certifications'
-                }).map(([key, label]) => (
-                    <div key={key} className="form-group">
-                        <label>{label}</label>
-                        <div className="array-input-group">
-                            <input
-                                type="text"
-                                placeholder={`Add ${label.toLowerCase()}`}
-                                onKeyPress={(e) => {
-                                    if (e.key === 'Enter') {
-                                        addSkill(key as keyof ResumeData['skills'], e.currentTarget.value)
-                                        e.currentTarget.value = ''
-                                    }
-                                }}
-                            />
+                {resumeData.skills.map((skillSection, index) => (
+                    <div key={skillSection.id} className="dynamic-section">
+                        <div className="dynamic-section-header">
+                            <h4>Skill Section {index + 1}</h4>
                             <button
                                 type="button"
-                                className="btn btn-secondary"
-                                onClick={(e) => {
-                                    const input = e.currentTarget.previousElementSibling as HTMLInputElement
-                                    addSkill(key as keyof ResumeData['skills'], input.value)
-                                    input.value = ''
-                                }}
+                                className="btn btn-danger"
+                                onClick={() => removeSkillSection(skillSection.id)}
                             >
-                                Add
+                                Remove
                             </button>
                         </div>
-                        <div className="tags-container">
-                            {resumeData.skills[key as keyof ResumeData['skills']].map((skill, skillIndex) => (
-                                <span key={skillIndex} className="tag">
-                                    {skill}
-                                    <span
-                                        className="remove-tag"
-                                        onClick={() => removeSkill(key as keyof ResumeData['skills'], skillIndex)}
-                                    >
-                                        ×
+                        <div className="form-group">
+                            <label>Section Name</label>
+                            <input
+                                type="text"
+                                value={skillSection.name}
+                                onChange={(e) => updateSkillSectionName(skillSection.id, e.target.value)}
+                                placeholder="e.g., Programming Languages, Tech Stack, etc."
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Skills</label>
+                            <div className="array-input-group">
+                                <input
+                                    type="text"
+                                    placeholder={`Add ${skillSection.name || 'skill'}`}
+                                    onKeyPress={(e) => {
+                                        if (e.key === 'Enter') {
+                                            addSkill(skillSection.id, e.currentTarget.value)
+                                            e.currentTarget.value = ''
+                                        }
+                                    }}
+                                />
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    onClick={(e) => {
+                                        const input = e.currentTarget.previousElementSibling as HTMLInputElement
+                                        addSkill(skillSection.id, input.value)
+                                        input.value = ''
+                                    }}
+                                >
+                                    Add
+                                </button>
+                            </div>
+                            <div className="tags-container">
+                                {skillSection.skills.map((skill, skillIndex) => (
+                                    <span key={skillIndex} className="tag">
+                                        {skill}
+                                        <span
+                                            className="remove-tag"
+                                            onClick={() => removeSkill(skillSection.id, skillIndex)}
+                                        >
+                                            ×
+                                        </span>
                                     </span>
-                                </span>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
+                <button
+                    type="button"
+                    className="btn btn-primary add-button"
+                    onClick={addSkillSection}
+                >
+                    Add Skill Section
+                </button>
             </div>
 
             {/* Education */}
@@ -704,7 +822,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ resumeData, setResumeData }) =>
                         type="text"
                         value={resumeData.education.degree}
                         onChange={(e) => updateEducation('degree', e.target.value)}
-                        placeholder="e.g., B.Tech, Computer Science And Engineering(CSE)"
+                        placeholder="e.g., Bachelor of Science, Computer Software Engineering"
                     />
                 </div>
                 <div className="form-group">

@@ -74,7 +74,9 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         pdf.link(510, 50, 80, 15, { url: resumeData.personalInfo.github })
       }
 
-      pdf.save(`${resumeData.personalInfo.name || 'resume'}_resume.pdf`)
+      const name = (resumeData.personalInfo.name || 'resume').replace(/\s+/g, '_')
+      const role = resumeData.personalInfo.role ? resumeData.personalInfo.role.replace(/\s+/g, '_') + '_Job_' : ''
+      pdf.save(`${role}${name}_Resume.pdf`)
     } catch (error) {
       console.error('Error generating PDF:', error)
       alert('Error generating PDF. Please try again.')
@@ -88,7 +90,9 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
       const dataStr = JSON.stringify(resumeData, null, 2)
       const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr)
       
-      const exportFileDefaultName = `${resumeData.personalInfo.name || 'resume'}_data.json`
+      const name = (resumeData.personalInfo.name || 'resume').replace(/\s+/g, '_')
+      const role = resumeData.personalInfo.role ? resumeData.personalInfo.role.replace(/\s+/g, '_') + '_Job_' : ''
+      const exportFileDefaultName = `${role}${name}_data.json`
       
       const linkElement = document.createElement('a')
       linkElement.setAttribute('href', dataUri)
@@ -100,14 +104,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
     }
   }
 
-  const formatSkillsSection = (skills: string[], title: string) => {
-    if (skills.length === 0) return null
-    return (
-      <div className="skill-category">
-        <strong>{title}:</strong> {skills.join(', ')}
-      </div>
-    )
-  }
+
 
   return (
     <div className="resume-preview-container">
@@ -146,6 +143,11 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         {/* Header */}
         <div className="resume-header">
           <h1 className="resume-name">{resumeData.personalInfo.name || 'Your Name'}</h1>
+          {resumeData.personalInfo.role && (
+            <div className="resume-role" style={{ fontSize: `${resumeData.fontSize + 2}px`, fontWeight: 'bold', color: '#666', marginBottom: '4px' }}>
+              {resumeData.personalInfo.role}
+            </div>
+          )}
           
           <div className="contact-info" style={{ fontSize: `${resumeData.navbarFontSize}px` }}>
             <div className="contact-item">
@@ -220,9 +222,11 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                       <span className="project-link">{project.githubLink}</span>
                     </div>
                   </div>
-                  <div className="project-description">
-                    {project.description}
-                  </div>
+                  <ul className="project-description">
+                    {project.description.filter(desc => desc.trim()).map((desc, descIndex) => (
+                      <li key={descIndex}>{desc}</li>
+                    ))}
+                  </ul>
                   {project.technologies.length > 0 && (
                     <div className="project-technologies">
                       <strong>Technologies:</strong> {project.technologies.join(', ')}
@@ -235,17 +239,18 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
         )}
 
         {/* Skills and Certifications */}
-        {!Object.values(resumeData.skills).every(skillArray => skillArray.length === 0) && (
+        {resumeData.skills.length > 0 && resumeData.skills.some(section => section.skills.length > 0) && (
           <div className="resume-section">
             <h2 className="section-title">Skills and Certifications</h2>
             <div className="section-content">
               <div className="skills-grid">
-                {formatSkillsSection(resumeData.skills.programmingLanguages, 'Programming Languages')}
-                {formatSkillsSection(resumeData.skills.techStack, 'Tech Stack')}
-                {formatSkillsSection(resumeData.skills.systemDesign, 'System Design')}
-                {formatSkillsSection(resumeData.skills.cloudDevops, 'Cloud and DevOps')}
-                {formatSkillsSection(resumeData.skills.databases, 'Data & Databases')}
-                {formatSkillsSection(resumeData.skills.certifications, 'Certifications')}
+                {resumeData.skills.map((section, index) => (
+                  section.skills.length > 0 && (
+                    <div key={index} className="skill-category">
+                      <strong>{section.name}:</strong> {section.skills.join(', ')}
+                    </div>
+                  )
+                ))}
               </div>
             </div>
           </div>

@@ -5,7 +5,8 @@
         "email": "mateenshahzad777@gmail.com",
         "linkedin": "https://linkedin.com/in/mateenshahzad",
         "github": "https://github.com/codebymateen",
-        "location": "Lahore, Pakistan"
+        "location": "Lahore, Pakistan",
+        "role": "Software Engineer"
     },
     "fontFamily": "Calibri",
     "fontSize": 14,
@@ -48,25 +49,57 @@
             "id": "1",
             "name": "API Rate Limiting Gateway",
             "githubLink": "Github Link",
-            "description": "Built a lightweight API gateway with token bucket rate-limiting per user and per API, capable of handling 1M+ requests per day with minimal latency overhead.",
+            "description": [
+                "Built a lightweight API gateway with token bucket rate-limiting per user and per API, capable of handling 1M+ requests per day with minimal latency overhead.",
+                "Implemented distributed caching with Redis for session management and rate limit tracking across multiple gateway instances.",
+                "Designed comprehensive monitoring dashboard with real-time traffic analytics and alerting for rate limit violations."
+            ],
             "technologies": ["Java", "Spring Boot", "Redis", "MongoDB", "Docker"]
         },
         {
             "id": "2",
             "name": "Cloud Cost Analyzer Tool",
             "githubLink": "Github Link",
-            "description": "Created a full-stack internal tool for real-time cost monitoring across AWS services, visualizing daily/monthly spend and forecasting based on usage trends.",
+            "description": [
+                "Created a full-stack internal tool for real-time cost monitoring across AWS services, visualizing daily/monthly spend and forecasting based on usage trends.",
+                "Developed automated cost optimization recommendations based on usage patterns and resource utilization analysis.",
+                "Built interactive data visualization components with filtering and drill-down capabilities for detailed cost breakdown."
+            ],
             "technologies": ["React", "Node.js", "AWS SDK", "Chart.js", "PostgreSQL"]
         }
     ],
-    "skills": {
-        "programmingLanguages": ["Advanced Java", "Python"],
-        "techStack": ["Spring Boot", "Hibernate", "REST APIs"],
-        "systemDesign": ["Microservices Architecture", "Domain-Driven Design (DDD)", "Event-Driven Systems", "Design Patterns"],
-        "cloudDevops": ["Kubernetes", "Amazon Web Services", "Terraform", "Github", "Jenkins"],
-        "databases": ["MySQL", "DynamoDB", "MongoDB", "Kafka"],
-        "certifications": ["AWS Certified Cloud Practitioner"]
-    },
+    "skills": [
+        {
+            "id": "1",
+            "name": "Programming Languages",
+            "skills": ["Advanced Java", "Python"]
+        },
+        {
+            "id": "2",
+            "name": "Tech Stack",
+            "skills": ["Spring Boot", "Hibernate", "REST APIs"]
+        },
+        {
+            "id": "3",
+            "name": "System Design",
+            "skills": ["Microservices Architecture", "Domain-Driven Design (DDD)", "Event-Driven Systems", "Design Patterns"]
+        },
+        {
+            "id": "4",
+            "name": "Cloud and DevOps",
+            "skills": ["Kubernetes", "Amazon Web Services", "Terraform", "Github", "Jenkins"]
+        },
+        {
+            "id": "5",
+            "name": "Data & Databases",
+            "skills": ["MySQL", "DynamoDB", "MongoDB", "Kafka"]
+        },
+        {
+            "id": "6",
+            "name": "Certifications",
+            "skills": ["AWS Certified Cloud Practitioner"]
+        }
+    ],
     "education": {
         "institution": "University of Management & Technology, Lahore",
         "degree": "Bachelor of Science, Computer Software Engineering",

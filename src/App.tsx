@@ -11,6 +11,7 @@ export interface ResumeData {
     linkedin: string
     github: string
     location: string
+    role: string
   }
   fontFamily: string
   fontSize: number
@@ -32,17 +33,14 @@ export interface ResumeData {
     id: string
     name: string
     githubLink: string
-    description: string
+    description: string[]
     technologies: string[]
   }>
-  skills: {
-    programmingLanguages: string[]
-    techStack: string[]
-    systemDesign: string[]
-    cloudDevops: string[]
-    databases: string[]
-    certifications: string[]
-  }
+  skills: Array<{
+    id: string
+    name: string
+    skills: string[]
+  }>
   education: {
     institution: string
     degree: string
@@ -59,7 +57,8 @@ const initialResumeData: ResumeData = {
     email: '',
     linkedin: '',
     github: '',
-    location: ''
+    location: '',
+    role: ''
   },
   fontFamily: 'Calibri',
   fontSize: 11,
@@ -71,14 +70,14 @@ const initialResumeData: ResumeData = {
   },
   workExperience: [],
   projects: [],
-  skills: {
-    programmingLanguages: [],
-    techStack: [],
-    systemDesign: [],
-    cloudDevops: [],
-    databases: [],
-    certifications: []
-  },
+  skills: [
+    { id: '1', name: 'Programming Languages', skills: [] },
+    { id: '2', name: 'Tech Stack', skills: [] },
+    { id: '3', name: 'System Design', skills: [] },
+    { id: '4', name: 'Cloud and DevOps', skills: [] },
+    { id: '5', name: 'Data & Databases', skills: [] },
+    { id: '6', name: 'Certifications', skills: [] }
+  ],
   education: {
     institution: '',
     degree: '',

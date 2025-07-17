@@ -209,6 +209,12 @@
 
 .project-description {
   margin: 2px 0;
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.project-description li {
+  margin-bottom: 0px;
   line-height: 1.1;
 }
 
