@@ -20,7 +20,7 @@ Free for everyone to use! No registration required.
 - **Personal Information**: Name, phone, email, LinkedIn, GitHub
 - **Work Experience**: Company, position, duration, location, and responsibilities
 - **Projects**: Project name, GitHub link, description, and technologies used
-- **Skills and Certifications**: Programming languages, tech stack, system design, cloud/DevOps, databases, and certifications
+- **Skills**: Programming languages, tech stack, system design, cloud/DevOps, databases, and certifications
 - **Education**: Institution, degree, duration, and grade
 - **Achievements**: Professional accomplishments and recognitions
 

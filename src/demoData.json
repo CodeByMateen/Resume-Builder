@@ -31,16 +31,24 @@
         },
         {
             "id": "2",
-            "company": "Microsoft",
+            "company": "Planlab Solutions",
             "position": "Software Engineer",
-            "duration": "Sept 2021 - Nov 2024",
+            "duration": "Aug 2024 - Dec 2024",
             "location": "Lahore, Pakistan",
             "responsibilities": [
-                "Built a real-time data synchronization pipeline using Kafka and Redis to handle 500K+ daily events with 130ms latency, improving user data consistency across distributed services.",
-                "Spearheaded containerization and CI/CD pipeline migration to GitHub Actions and Kubernetes, cutting deployment time from hours to 15 minutes.",
-                "Led the architecture and development of a scalable multi-tenant service orchestration platform, enabling dynamic service provisioning across internal teams, reducing onboarding time by 60%.",
-                "Collaborated with cross-functional teams to optimize performance bottlenecks in API gateway, achieving a 3x throughput improvement through caching strategies and thread-level service scaling.",
-                "Conducted design reviews and mentored 6+ junior engineers, leading efforts in tech documentation, code quality improvements, and knowledge sharing."
+                "Built and developed core backend of real estate management system handling property units, tenant management, and financial tracking with RESTful APIs.",
+                "Engineered a high-performance gambling application backend with real-time transaction processing, secure payment gateways, and advanced risk management algorithms ensuring 99.9% uptime and regulatory compliance.",
+                "Built a decentralized NFT marketplace using Node.js and Web3 technologies, implementing smart contracts for token minting, trading mechanisms, and cross-chain interoperability, achieving 500+ daily active users within 3 months."
+            ]
+        },
+        {
+            "id": "3",
+            "company": "Educist Testing Services",
+            "position": "Software Engineer",
+            "duration": "Feb 2023 - Aug 2024",
+            "location": "Lahore, Pakistan",
+            "responsibilities": [
+                "Designed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance, and client activity patterns, enabling executives to identify peak sales periods, most profitable products, and customer behavior trends for improved business decision-making."
             ]
         }
     ],
@@ -66,23 +74,34 @@
                 "Built interactive data visualization components with filtering and drill-down capabilities for detailed cost breakdown."
             ],
             "technologies": ["React", "Node.js", "AWS SDK", "Chart.js", "PostgreSQL"]
+        },
+        {
+            "id": "3",
+            "name": "Timelapse",
+            "githubLink": "Github Link",
+            "description": [
+                "Developed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance, and client activity patterns in real-time.",
+                "Implemented intelligent data visualization algorithms to identify peak sales periods, most profitable products, and client behavior trends, resulting in 35% improved business decision-making.",
+                "Built an automated reporting dashboard with AWS Lambda and React, providing executives with actionable insights on revenue optimization, inventory management, and customer engagement metrics."
+            ],
+            "technologies": ["Python", "React", "AWS Lambda", "Chart.js", "PostgreSQL"]
         }
     ],
     "skills": [
         {
             "id": "1",
             "name": "Programming Languages",
-            "skills": ["Advanced Java", "Python"]
+            "skills": ["Python", "JavaScript", "TypeScript"]
         },
         {
             "id": "2",
-            "name": "Tech Stack",
-            "skills": ["Spring Boot", "Hibernate", "REST APIs"]
+            "name": "Frameworks",
+            "skills": ["Node.js", "Express.js", "Nest.js", "Next.js", "Fastify", "Django", "FastAPI"]
         },
         {
             "id": "3",
             "name": "System Design",
-            "skills": ["Microservices Architecture", "Domain-Driven Design (DDD)", "Event-Driven Systems", "Design Patterns"]
+            "skills": ["Microservices Architecture", "Domain-Driven Design (DDD)", "Event-Driven Systems", "Design Patterns", "Blockchain Architecture"]
         },
         {
             "id": "4",
@@ -92,12 +111,7 @@
         {
             "id": "5",
             "name": "Data & Databases",
-            "skills": ["MySQL", "DynamoDB", "MongoDB", "Kafka"]
-        },
-        {
-            "id": "6",
-            "name": "Certifications",
-            "skills": ["AWS Certified Cloud Practitioner"]
+            "skills": ["MySQL", "DynamoDB", "MongoDB", "Kafka", "IPFS"]
         }
     ],
     "education": {
@@ -107,7 +121,7 @@
         "grade": "Grade: 3.2"
     },
     "achievements": [
-        "Recognized as a Top Contributor in team-level hackathons and internal code quality initiatives at Microsoft.",
+        "Recognized as a Top Contributor in team-level hackathons and internal code quality initiatives at Planlab Solutions.",
         "Recognized for delivering a mini project on internship/training, including REST API development, database integration, and unit testing.",
         "Presented a technical talk on scalable microservices architecture at an internal engineering conference attended by 200+ engineers."
     ]
