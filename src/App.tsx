@@ -21,6 +21,7 @@ export interface ResumeData {
     secondary: string
     name: string
   }
+  about?: string
   workExperience: Array<{
     id: string
     company: string
@@ -68,6 +69,7 @@ const initialResumeData: ResumeData = {
     secondary: '#2c5aa0',
     name: 'Light Blue'
   },
+  about: '',
   workExperience: [],
   projects: [],
   skills: [

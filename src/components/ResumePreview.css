@@ -232,10 +232,32 @@
 .skill-category {
   line-height: 1.1;
   padding: 1px 0;
+  margin-bottom: 4px;
 }
 
 .skill-category strong {
   color: #000;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.skills-list {
+  margin: 0;
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.skills-list li {
+  margin-bottom: 1px;
+  line-height: 1.1;
+}
+
+.about-text {
+  margin: 0;
+  line-height: 1.1;
+  text-align: justify;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .education-item {

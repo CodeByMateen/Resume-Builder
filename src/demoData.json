@@ -16,15 +16,16 @@
         "secondary": "#2c5aa0",
         "name": "Light Blue"
     },
+    "about": "A dedicated Software Engineer skilled in JavaScript, TypeScript and Python. Experienced in building backend solutions using modern frameworks with a focus on developing Backend and AI solutions and solving R&D challenges. A self-motivated, quick learner, adept at collaboration and delivering high-quality projects on time.",
     "workExperience": [
         {
             "id": "1",
             "company": "Musketeers Tech",
             "position": "Software Engineer",
-            "duration": "Dec 2024 - Present · 8 mos",
-            "location": "On-site",
+            "duration": "Dec 2024 - Present",
+            "location": "Lahore, Pakistan",
             "responsibilities": [
-                "Developed an algorithm Bug Tracker that removed duplicate entry of records, resolved data inconsistencies, and prevented app crashes resulting in improved data integrity and optimized sorting and filtering of records.",
+                "Developed an algorithm Bug Tracker that removed duplicate entry of records, resolved data inconsistencies and prevented app crashes resulting in improved data integrity and optimized sorting and filtering of records.",
                 "Implemented a Custom Chatbot using FastAPI + LangChain + GPT-4 with integrated Prompt Engineering for accurate natural language understanding. The bot is capable of handling voice input, multilingual translation, command-based actions (e.g. create room, fetch user groups) and generating intelligent, dynamic replies.",
                 "Deployed a Generative AI project that creates realistic video advertisements and promotions of products using custom AI avatars and voice synthesis, capable of doing product promotions from any script that enhances user engagement and automating ad content creation for personal brands and commercial products."
             ]
@@ -36,9 +37,10 @@
             "duration": "Aug 2024 - Dec 2024",
             "location": "Lahore, Pakistan",
             "responsibilities": [
-                "Built and developed core backend of real estate management system handling property units, tenant management, and financial tracking with RESTful APIs.",
-                "Engineered a high-performance gambling application backend with real-time transaction processing, secure payment gateways, and advanced risk management algorithms ensuring 99.9% uptime and regulatory compliance.",
-                "Built a decentralized NFT marketplace using Node.js and Web3 technologies, implementing smart contracts for token minting, trading mechanisms, and cross-chain interoperability, achieving 500+ daily active users within 3 months."
+                "Developed and documented RESTful APIs of Realwealtdy (Real Estate Application) for property listings, property units details, user and tenant management, financial tracking and media handling using NestJS, PostgreSQL and Prisma ORM.",
+                "Integrated AWS S3 media storage and Middesk API for business verification and smooth Builder onboarding.",
+                "Designed API documentation with Swagger, following clean code principles and best API writing and Database Query writing practices.",
+                "Collaborated with frontend and QA teams, ensuring smooth project execution and timely sprints delivery in an Agile environment."
             ]
         },
         {
@@ -48,7 +50,36 @@
             "duration": "Feb 2023 - Aug 2024",
             "location": "Lahore, Pakistan",
             "responsibilities": [
-                "Designed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance, and client activity patterns, enabling executives to identify peak sales periods, most profitable products, and customer behavior trends for improved business decision-making."
+                "Designed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance and client activity patterns, enabling executives to identify peak sales periods, most profitable products and customer behavior trends for improved business decision-making.",
+                "Developed and optimized EdTest (SAAS online exam preparation platform) backend using Node.js, Express and MongoDB, handling diverse question types and difficulty levels.",
+                "Implemented payment integrations using Stripe, JazzCash, Handle bulk data upload and media storage with Cloudinary.",
+                "Enabled dynamic test creation with advanced filtering and ensured optimum API performance through testing and clean architecture.",
+                "Collaborated in an Agile team, use Git for version control and participate in daily Scrum meetings."
+            ]
+        },
+        {
+            "id": "4",
+            "company": "Mslm",
+            "position": "Software Engineer Intern",
+            "duration": "Jun 2023 - Aug 2023",
+            "location": "Lahore, Pakistan",
+            "responsibilities": [
+                "Developed and optimized RESTful APIs with Go and PostgreSQL, ensuring secure access control, payment integration via Stripe and automated email send functionality.",
+                "Handled database transactions, indexing, migrations and integrated AWS S3 for media storage.",
+                "Conducted API testing, resolved bugs and used Git for version control and GitHub for collaboration with cross-functional teams."
+            ]
+        },
+        {
+            "id": "5",
+            "company": "Tkxel",
+            "position": "Software Engineer Intern",
+            "duration": "Jul 2022 - Aug 2022",
+            "location": "Lahore, Pakistan",
+            "responsibilities": [
+                "Worked on backend development tasks using Python Django and FastAPI with Django ORM and MySQL database.",
+                "Developed RESTful APIs and gained hands-on experience with modern development practices.",
+                "Collaborated with development teams and learned industry-standard coding practices.",
+                "Participated in code reviews and contributed to project documentation."
             ]
         }
     ],
@@ -62,7 +93,13 @@
                 "Implemented distributed caching with Redis for session management and rate limit tracking across multiple gateway instances.",
                 "Designed comprehensive monitoring dashboard with real-time traffic analytics and alerting for rate limit violations."
             ],
-            "technologies": ["Java", "Spring Boot", "Redis", "MongoDB", "Docker"]
+            "technologies": [
+                "Java",
+                "Spring Boot",
+                "Redis",
+                "MongoDB",
+                "Docker"
+            ]
         },
         {
             "id": "2",
@@ -73,45 +110,61 @@
                 "Developed automated cost optimization recommendations based on usage patterns and resource utilization analysis.",
                 "Built interactive data visualization components with filtering and drill-down capabilities for detailed cost breakdown."
             ],
-            "technologies": ["React", "Node.js", "AWS SDK", "Chart.js", "PostgreSQL"]
+            "technologies": [
+                "React",
+                "Node.js",
+                "AWS SDK",
+                "Chart.js",
+                "PostgreSQL"
+            ]
         },
         {
             "id": "3",
             "name": "Timelapse",
             "githubLink": "Github Link",
             "description": [
-                "Developed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance, and client activity patterns in real-time.",
-                "Implemented intelligent data visualization algorithms to identify peak sales periods, most profitable products, and client behavior trends, resulting in 35% improved business decision-making.",
-                "Built an automated reporting dashboard with AWS Lambda and React, providing executives with actionable insights on revenue optimization, inventory management, and customer engagement metrics."
+                "Developed a comprehensive business monitoring and CRM system Timelapse analytics to track company growth, sales performance and client activity patterns in real-time.",
+                "Implemented intelligent data visualization algorithms to identify peak sales periods, most profitable products and client behavior trends, resulting in 35% improved business decision-making.",
+                "Built an automated reporting dashboard with AWS Lambda and React, providing executives with actionable insights on revenue optimization, inventory management and customer engagement metrics."
             ],
-            "technologies": ["Python", "React", "AWS Lambda", "Chart.js", "PostgreSQL"]
+            "technologies": [
+                "Python",
+                "React",
+                "AWS Lambda",
+                "Chart.js",
+                "PostgreSQL"
+            ]
         }
     ],
     "skills": [
         {
             "id": "1",
-            "name": "Programming Languages",
-            "skills": ["Python", "JavaScript", "TypeScript"]
+            "name": "Languages & Technologies",
+            "skills": [
+                "Languages: JavaScript, TypeScript, Python",
+                "Backend: Node.js, Express.js, Next.js, Nest.js, Fastify, Django, FastAPI",
+                "Databases: MySQL, PostgreSQL, MongoDB, MS SQL, Prisma (ORM)",
+                "Cloud & DevOps: AWS (S3, RDS), Docker, Firebase, Redis",
+                "Other: Git & GitHub, Swagger, SQL Injection Handling"
+            ]
         },
         {
             "id": "2",
-            "name": "Frameworks",
-            "skills": ["Node.js", "Express.js", "Nest.js", "Next.js", "Fastify", "Django", "FastAPI"]
+            "name": "Development Expertise",
+            "skills": [
+                "Backend Engineering: API development (RESTful), Microservices Architecture, SDLC, Agile/Scrum, 3rd Party API Integrations",
+                "Clean Code Practices (SOLID, Design patterns, Loosely coupled architecture)",
+                "Software Re-Engineering (refactoring techniques for legacy code)",
+                "Database & Schema Design: Schema building, ERD (Entity-Relationship Diagram) creation, relational diagrams",
+                "Software Quality Assurance: Unit Testing, Integration Testing, Postman, API performance optimization"
+            ]
         },
         {
             "id": "3",
-            "name": "System Design",
-            "skills": ["Microservices Architecture", "Domain-Driven Design (DDD)", "Event-Driven Systems", "Design Patterns", "Blockchain Architecture"]
-        },
-        {
-            "id": "4",
-            "name": "Cloud and DevOps",
-            "skills": ["Kubernetes", "Amazon Web Services", "Terraform", "Github", "Jenkins"]
-        },
-        {
-            "id": "5",
-            "name": "Data & Databases",
-            "skills": ["MySQL", "DynamoDB", "MongoDB", "Kafka", "IPFS"]
+            "name": "Additional Skills",
+            "skills": [
+                "Problem-solving, Analytical thinking, Communication & teamwork, Quick learner, Time management"
+            ]
         }
     ],
     "education": {
@@ -122,7 +175,7 @@
     },
     "achievements": [
         "Recognized as a Top Contributor in team-level hackathons and internal code quality initiatives at Planlab Solutions.",
-        "Recognized for delivering a mini project on internship/training, including REST API development, database integration, and unit testing.",
+        "Recognized for delivering a mini project on internship/training, including REST API development, database integration and unit testing.",
         "Presented a technical talk on scalable microservices architecture at an internal engineering conference attended by 200+ engineers."
     ]
-} 
+}

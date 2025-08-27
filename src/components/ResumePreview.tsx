@@ -187,6 +187,16 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
           </div>
         </div>
 
+        {/* About Section */}
+        {resumeData.about && (
+          <div className="resume-section">
+            <h2 className="section-title">About</h2>
+            <div className="section-content">
+              <p className="about-text">{resumeData.about}</p>
+            </div>
+          </div>
+        )}
+
         {/* Work Experience */}
         {resumeData.workExperience.length > 0 && (
           <div className="resume-section">
@@ -253,7 +263,12 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ resumeData }) => {
                 {resumeData.skills.map((section, index) => (
                   section.skills.length > 0 && (
                     <div key={index} className="skill-category">
-                      <strong>{section.name}:</strong> {section.skills.join(', ')}
+                      <strong>{section.name}:</strong>
+                      <ul className="skills-list">
+                        {section.skills.map((skill, skillIndex) => (
+                          <li key={skillIndex}>{skill}</li>
+                        ))}
+                      </ul>
                     </div>
                   )
                 ))}
